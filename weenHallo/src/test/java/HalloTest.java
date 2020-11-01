@@ -6,5 +6,6 @@ public class HalloTest {
         // line 2
         // line 3
         // this line from magic
+        // this line as well from the magic
     }
 }
