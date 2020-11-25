@@ -37,6 +37,9 @@ public class GettingMoreInfoAboutResultSetObject {
             System.out.println(colNum+". Column name " + rsmd.getColumnLabel(colNum)   );
         }
 
+        rs.close();
+        stmt.close();
+        conn.close();
 
 
 
