@@ -5,6 +5,7 @@ import java.sql.*;
 public class TestConnection {
     public static void main(String[] args) throws SQLException {
         // REPLACE THIS IP ADDRESS WITH YOUR OWN THAT WORKING IN SQL DEVELOPER
+        //                      jdbc:DataBaseType:subprotocal:@Host:port:SID
         String connectionStr = "jdbc:oracle:thin:@52.207.133.191:1521:XE";
         String username = "hr" ;
         String password = "hr" ;
