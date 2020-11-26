@@ -7,12 +7,12 @@ public class GettingMoreInfoAboutResultSetObject {
     public static void main(String[] args) throws SQLException {
 
         String connectionStr = "jdbc:oracle:thin:@52.207.133.191:1521:XE";
-        String username = "hr";
-        String password = "hr";
+        String username = "hr" ;
+        String password = "hr" ;
 
         Connection conn = DriverManager.getConnection(connectionStr,username,password) ;
-        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs   =   stmt.executeQuery("SELECT * FROM EMPLOYEES") ;
+        Statement stmnt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs   =   stmnt.executeQuery("SELECT * FROM EMPLOYEES") ;
 
         // Metadata -- data about the data --
         // ResultSetMetaData -- data about the ResultSet object that contain our resulting rows and columns
@@ -34,14 +34,13 @@ public class GettingMoreInfoAboutResultSetObject {
         // now print out all column names :
 
         for (int colNum = 1; colNum <= colCount ; colNum++) {
-            System.out.println(colNum+". Column name " + rsmd.getColumnLabel(colNum)   );
+            System.out.println("Column name " + rsmd.getColumnLabel(colNum)   );
         }
 
         rs.close();
-        stmt.close();
+        stmnt.close();
         conn.close();
 
-
-
     }
+
 }

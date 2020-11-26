@@ -1,36 +1,33 @@
 package day2;
 
+import utility.DB_Utility;
+
 import java.sql.*;
 
 public class Review {
 
     public static void main(String[] args) throws SQLException {
 
-        String connectionStr = "jdbc:oracle:thin:@52.207.133.191:1521:XE";
-        String username = "hr";
-        String password = "hr";
-
-        Connection conn = DriverManager.getConnection(connectionStr,username,password) ;
-        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs   =   stmt.executeQuery("SELECT * FROM JOBS") ;
+        DB_Utility.createConnection();
+        ResultSet rs   = DB_Utility.runQuery ("SELECT * FROM JOBS") ;
 
         // I want to read the first row
-        rs.next();
-        System.out.println("First column value in Jobs :"+rs.getString(1));
-        System.out.println("Second column value in Jobs :"+rs.getString(2));
+        rs.next() ;
+        System.out.println("First column value in Jobs " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs " + rs.getString(2)  );
 
         // move to row number 7 and get above 2 columns values
-        rs.absolute(7);
-        System.out.println("First column value in Jobs in row 7 :"+rs.getString(1));
-        System.out.println("Second column value in Jobs in row 7 :"+rs.getString(2));
+        rs.absolute(7) ;
+        System.out.println("First column value in Jobs in row 7 " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs in row 7 " + rs.getString(2)  );
 
-        rs.last();
-        System.out.println("First column value in Jobs in last row :"+rs.getString(1));
-        System.out.println("Second column value in Jobs in last row :"+rs.getString(2));
+        rs.last() ;
+        System.out.println("First column value in Jobs in last row " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs in last row " + rs.getString(2)  );
 
         rs.previous();
-        System.out.println("First column value in Jobs in 2nd row from last :"+rs.getString(1));
-        System.out.println("Second column value in Jobs in 2nd row from last :"+rs.getString(2));
+        System.out.println("First column value in Jobs in 2nd row from last  " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs in 2nd row from last  " + rs.getString(2)  );
 
         System.out.println("\n---------Loop from first row till last row print JOB_ID-------");
         rs.beforeFirst();
@@ -49,13 +46,12 @@ public class Review {
             System.out.println("MIN SALARY COLUMN AS NUMBER  $" + rs.getDouble("MIN_SALARY")    );
         }
 
-        // clean up the connection , statement and ResultSet object after usage
-        rs.close();
-        stmt.close();
-        conn.close();
+        // clean up the connection , statement and resultset object after usage
+        DB_Utility.destroy();
 
 
 
 
     }
+
 }
