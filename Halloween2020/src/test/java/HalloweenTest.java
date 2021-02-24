@@ -5,6 +5,9 @@ public class HalloweenTest {
         System.out.println("hello");
         System.out.println("hello");
         System.out.println("hello");
-        System.out.println("hello");
+        System.out.println("Merhaba");
+        System.out.println("Merhaba");
+        System.out.println("Merhaba");
+        System.out.println("Merhaba");
     }
 }
