@@ -22,7 +22,7 @@ public class WT_CybertekLinkVerification {
 
         WebElement emailInputBox = driver.findElement(By.name("email"));
 
-        emailInputBox.sendKeys("anyemail@domain.com");
+        emailInputBox.sendKeys("http://zero.webappsecurity.com/login.html");
 
         //4. Click on Retrieve password
 

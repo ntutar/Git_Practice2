@@ -21,7 +21,6 @@ public class WebTablePractices {
         SmartBearUtilities.loginToSmartBear(driver);
     }
 
-
     //Using the verify order method from SmartBearUtilities class
     @Test
     public void task4_verify_order(){
